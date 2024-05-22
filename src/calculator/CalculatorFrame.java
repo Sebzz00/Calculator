@@ -296,13 +296,11 @@ public class CalculatorFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         ArrayList<Operation> operationHistory = this.history.getOperations();
         Collections.reverse(this.history.getOperations());
-        
         DefaultListModel model = new DefaultListModel();
         model.addAll(operationHistory);
         jList1.setModel(model);
     }//GEN-LAST:event_BtnupdatehActionPerformed
 
-    
     private void performOperation(String operator) {
         try {
             double number1 = Double.parseDouble(jTextField1.getText());
