@@ -214,19 +214,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
 
     private void BtnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnaddActionPerformed
         // TODO add your handling code here:
-        try {
-            Calculator calculator = new Calculator();
-            
-            double number1 = Double.parseDouble(jTextField1.getText());
-            double number2 = Double.parseDouble(jTextField2.getText());
-            double result = calculator.add(number1, number2);
-            
-            this.history.addOperation(new Operation(number1, number2, "+", result));
-            
-            jTextField3.setText("" + result);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        performOperation("+");  
     }//GEN-LAST:event_BtnaddActionPerformed
 
     private void BtnsubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnsubtractActionPerformed
