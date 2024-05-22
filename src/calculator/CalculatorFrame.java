@@ -281,8 +281,8 @@ public class CalculatorFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_BtndivideActionPerformed
 
     private void BtnpotencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnpotencyActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Not Implemented", "Error", JOptionPane.ERROR_MESSAGE);
+        // TODO add your handling code here
+       performOperation("^");
     }//GEN-LAST:event_BtnpotencyActionPerformed
 
     private void BtnclearnumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnclearnumActionPerformed
@@ -302,6 +302,35 @@ public class CalculatorFrame extends javax.swing.JFrame {
         jList1.setModel(model);
     }//GEN-LAST:event_BtnupdatehActionPerformed
 
+    
+    private void performOperation(String operator) {
+        try {
+            double number1 = Double.parseDouble(jTextField1.getText());
+            double number2 = Double.parseDouble(jTextField2.getText());
+            double result = 0;
+            switch (operator) {
+                case "+":
+                    result = controller.add(number1, number2);
+                    break;
+                case "-":
+                    result = controller.subtract(number1, number2);
+                    break;
+                case "*":
+                    result = controller.multiply(number1, number2);
+                    break;
+                case "/":
+                    result = controller.divide(number1, number2);
+                    break;
+                case "^":
+                    result = controller.power(number1, number2);
+                    break;
+            }
+            jTextField3.setText(String.format("%.3f", result));
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
