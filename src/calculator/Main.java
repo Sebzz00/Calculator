@@ -14,7 +14,11 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Calculator calculator = new Calculator();
+        History history = new History();
+        CalculatorController controller = new CalculatorController(calculator, history);
+        CalculatorFrame frame = new CalculatorFrame(controller);
+        frame.setVisible(true);
     }
     
 }

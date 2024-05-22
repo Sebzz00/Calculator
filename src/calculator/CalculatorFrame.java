@@ -17,11 +17,13 @@ public class CalculatorFrame extends javax.swing.JFrame {
     
     private History history;
 
+    private CalculatorController controller;
     /**
      * Creates new form Calculator
      */
-    public CalculatorFrame() {
+    public CalculatorFrame(CalculatorController controller) {
         this.history = new History();
+        this.controller = controller;
         initComponents();
     }
 
@@ -331,7 +333,6 @@ public class CalculatorFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CalculatorFrame().setVisible(true);
             }
         });
     }
