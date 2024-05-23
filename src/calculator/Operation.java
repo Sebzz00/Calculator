@@ -22,21 +22,6 @@ public class Operation {
         this.operator = operator;
         this.result = result;
     }
-    public double getNumber1() {
-        return number1;
-    }
-
-    public double getNumber2() {
-        return number2;
-    }
-
-    public String getOperator() {
-        return operator;
-    }
-
-    public double getResult() {
-        return result;
-    }
 
     @Override
     public String toString() {

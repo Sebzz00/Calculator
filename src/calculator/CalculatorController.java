@@ -18,37 +18,44 @@ public class CalculatorController {
         this.calculator = calculator;
         this.history = history;
     }
-    public double add(double number1, double number2) {
-        double result = calculator.add(number1, number2);
-        history.addOperation(new Operation(number1, number2, "+", result));
-        return result;
+
+    public Response add(double a, double b) {
+        double result = calculator.add(a, b);
+        Operation operation = new Operation(a, b, "+", result);
+        history.addOperation(operation);
+        return new Response(result, true, "Addition successful");
     }
 
-    public double subtract(double number1, double number2) {
-        double result = calculator.subtract(number1, number2);
-        history.addOperation(new Operation(number1, number2, "-", result));
-        return result;
+    public Response subtract(double a, double b) {
+        double result = calculator.subtract(a, b);
+        Operation operation = new Operation(a, b, "-", result);
+        history.addOperation(operation);
+        return new Response(result, true, "Subtraction successful");
     }
 
-    public double multiply(double number1, double number2) {
-        double result = calculator.multiply(number1, number2);
-        history.addOperation(new Operation(number1, number2, "*", result));
-        return result;
+    public Response multiply(double a, double b) {
+        double result = calculator.multiply(a, b);
+        Operation operation = new Operation(a, b, "*", result);
+        history.addOperation(operation);
+        return new Response(result, true, "Multiplication successful");
     }
 
-    public double divide(double number1, double number2) {
-        double result = calculator.divide(number1, number2);
-        history.addOperation(new Operation(number1, number2, "/", result));
-        return result;
+    public Response divide(double a, double b) {
+        double result = calculator.divide(a, b);
+        Operation operation = new Operation(a, b, "/", result);
+        history.addOperation(operation);
+        return new Response(result, true, "Division successful");
     }
 
-    public double power(double number1, double number2) {
-        double result = calculator.power(number1, number2);
-        history.addOperation(new Operation(number1, number2, "^", result));
-        return result;
+    public Response potency(double base, double exponent) {
+        double result = calculator.potency(base, exponent);
+        Operation operation = new Operation(base, exponent, "^", result);
+        history.addOperation(operation);
+        return new Response(result, true, "Potency successful");
     }
 
-    public ArrayList<Operation> getHistory() {
-        return history.getOperationsInReverseOrder();
+    public Response getHistory() {
+        ArrayList<Operation> operations = history.getOperationsInReverseOrder();
+        return new Response(operations, true, "History retrieved successfully");
     }
 }

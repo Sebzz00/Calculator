@@ -15,15 +15,14 @@ import javax.swing.JOptionPane;
  */
 public class CalculatorFrame extends javax.swing.JFrame {
     
+   private CalculatorController controller;
     private History history;
-
-    private CalculatorController controller;
     /**
      * Creates new form Calculator
      */
-    public CalculatorFrame(CalculatorController controller) {
+    public CalculatorFrame() {
         this.history = new History();
-        this.controller = controller;
+        this.controller = new CalculatorController(new Calculator(), history);
         initComponents();
     }
 
@@ -214,38 +213,38 @@ public class CalculatorFrame extends javax.swing.JFrame {
 
     private void BtnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnaddActionPerformed
         // TODO add your handling code here:
-        performOperation("+");  
+        try {
+            double number1 = Double.parseDouble(jTextField1.getText());
+            double number2 = Double.parseDouble(jTextField2.getText());
+            Response response = controller.add(number1, number2);
+            jTextField3.setText("" + response.getResult());
+            JOptionPane.showMessageDialog(null, response.getMessage());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
+        } 
     }//GEN-LAST:event_BtnaddActionPerformed
 
     private void BtnsubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnsubtractActionPerformed
         // TODO add your handling code here:
-        try {
-            Calculator calculator = new Calculator();
-            
+         try {
             double number1 = Double.parseDouble(jTextField1.getText());
             double number2 = Double.parseDouble(jTextField2.getText());
-            double result = calculator.subtract(number1, number2);
-            
-            this.history.addOperation(new Operation(number1, number2, "-", result));
-            
-            jTextField3.setText("" + result);
+            Response response = controller.subtract(number1, number2);
+            jTextField3.setText("" + response.getResult());
+            JOptionPane.showMessageDialog(null, response.getMessage());
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        }  
     }//GEN-LAST:event_BtnsubtractActionPerformed
 
     private void BtnmultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnmultiplyActionPerformed
         // TODO add your handling code here:
         try {
-            Calculator calculator = new Calculator();
-            
             double number1 = Double.parseDouble(jTextField1.getText());
             double number2 = Double.parseDouble(jTextField2.getText());
-            double result = calculator.multiply(number1, number2);
-            
-            this.history.addOperation(new Operation(number1, number2, "*", result));
-            
-            jTextField3.setText("" + result);
+            Response response = controller.multiply(number1, number2);
+            jTextField3.setText("" + response.getResult());
+            JOptionPane.showMessageDialog(null, response.getMessage());
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -254,15 +253,11 @@ public class CalculatorFrame extends javax.swing.JFrame {
     private void BtndivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtndivideActionPerformed
         // TODO add your handling code here:
         try {
-            Calculator calculator = new Calculator();
-            
             double number1 = Double.parseDouble(jTextField1.getText());
             double number2 = Double.parseDouble(jTextField2.getText());
-            double result = calculator.divide(number1, number2);
-            
-            this.history.addOperation(new Operation(number1, number2, "/", result));
-            
-            jTextField3.setText("" + result);
+            Response response = controller.divide(number1, number2);
+            jTextField3.setText("" + response.getResult());
+            JOptionPane.showMessageDialog(null, response.getMessage());
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -270,7 +265,15 @@ public class CalculatorFrame extends javax.swing.JFrame {
 
     private void BtnpotencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnpotencyActionPerformed
         // TODO add your handling code here
-       performOperation("^");
+       try {
+            double base = Double.parseDouble(jTextField1.getText());
+            double exponent = Double.parseDouble(jTextField2.getText());
+            Response response = controller.potency(base, exponent);
+            jTextField3.setText("" + response.getResult());
+            JOptionPane.showMessageDialog(null, response.getMessage());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_BtnpotencyActionPerformed
 
     private void BtnclearnumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnclearnumActionPerformed
@@ -282,40 +285,18 @@ public class CalculatorFrame extends javax.swing.JFrame {
 
     private void BtnupdatehActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnupdatehActionPerformed
         // TODO add your handling code here:
-        ArrayList<Operation> operationHistory = this.history.getOperations();
-        Collections.reverse(this.history.getOperations());
-        DefaultListModel model = new DefaultListModel();
-        model.addAll(operationHistory);
-        jList1.setModel(model);
+       Response response = controller.getHistory();
+        if (response.isSuccess()) {
+            ArrayList<Operation> operationHistory = (ArrayList<Operation>) response.getResult();
+            DefaultListModel model = new DefaultListModel();
+            model.addAll(operationHistory);
+            jList1.setModel(model);
+            JOptionPane.showMessageDialog(null, response.getMessage());
+        } else {
+            JOptionPane.showMessageDialog(null, response.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_BtnupdatehActionPerformed
 
-    private void performOperation(String operator) {
-        try {
-            double number1 = Double.parseDouble(jTextField1.getText());
-            double number2 = Double.parseDouble(jTextField2.getText());
-            double result = 0;
-            switch (operator) {
-                case "+":
-                    result = controller.add(number1, number2);
-                    break;
-                case "-":
-                    result = controller.subtract(number1, number2);
-                    break;
-                case "*":
-                    result = controller.multiply(number1, number2);
-                    break;
-                case "/":
-                    result = controller.divide(number1, number2);
-                    break;
-                case "^":
-                    result = controller.power(number1, number2);
-                    break;
-            }
-            jTextField3.setText(String.format("%.3f", result));
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
     
     /**
      * @param args the command line arguments

@@ -18,7 +18,7 @@ public class History {
     public History() {
         this.operations = new ArrayList<>();
     }
-    
+
     public void addOperation(Operation operation) {
         this.operations.add(operation);
     }
@@ -28,8 +28,8 @@ public class History {
     }
 
     public ArrayList<Operation> getOperationsInReverseOrder() {
-        ArrayList<Operation> reversed = new ArrayList<>(operations);
-        Collections.reverse(reversed);
-        return reversed;
+        ArrayList<Operation> reversedOperations = new ArrayList<>(operations);
+        Collections.reverse(reversedOperations);
+        return reversedOperations;
     }
 }

@@ -14,11 +14,11 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Calculator calculator = new Calculator();
-        History history = new History();
-        CalculatorController controller = new CalculatorController(calculator, history);
-        CalculatorFrame frame = new CalculatorFrame(controller);
-        frame.setVisible(true);
+       javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                CalculatorFrame frame = new CalculatorFrame();
+                frame.setVisible(true);
+            }
+        });
     }
-    
 }
