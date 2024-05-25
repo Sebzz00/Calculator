@@ -1,11 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.view;
 
-import calculator.Calculator;
-import com.controllers.CalculatorController;
 import com.models.storage.History;
 import com.models.Operation;
 import com.controllers.util.Response;
@@ -20,13 +15,11 @@ import javax.swing.JOptionPane;
  */
 public class CalculatorFrame extends javax.swing.JFrame {
     
-   private CalculatorController controller;
     private History history;
     /**
      * Creates new form Calculator
      */
     public CalculatorFrame() {
-        this.controller = new CalculatorController(new Calculator(), history);
         initComponents();
     }
 
@@ -217,67 +210,27 @@ public class CalculatorFrame extends javax.swing.JFrame {
 
     private void BtnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnaddActionPerformed
         // TODO add your handling code here:
-        try {
-            double number1 = Double.parseDouble(jTextField1.getText());
-            double number2 = Double.parseDouble(jTextField2.getText());
-            Response response = controller.add(number1, number2);
-            jTextField3.setText("" + response.getResult());
-            JOptionPane.showMessageDialog(null, response.getMessage());
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
-        } 
+       
     }//GEN-LAST:event_BtnaddActionPerformed
 
     private void BtnsubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnsubtractActionPerformed
         // TODO add your handling code here:
-         try {
-            double number1 = Double.parseDouble(jTextField1.getText());
-            double number2 = Double.parseDouble(jTextField2.getText());
-            Response response = controller.subtract(number1, number2);
-            jTextField3.setText("" + response.getResult());
-            JOptionPane.showMessageDialog(null, response.getMessage());
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
-        }  
+         
     }//GEN-LAST:event_BtnsubtractActionPerformed
 
     private void BtnmultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnmultiplyActionPerformed
         // TODO add your handling code here:
-        try {
-            double number1 = Double.parseDouble(jTextField1.getText());
-            double number2 = Double.parseDouble(jTextField2.getText());
-            Response response = controller.multiply(number1, number2);
-            jTextField3.setText("" + response.getResult());
-            JOptionPane.showMessageDialog(null, response.getMessage());
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+       
     }//GEN-LAST:event_BtnmultiplyActionPerformed
 
     private void BtndivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtndivideActionPerformed
         // TODO add your handling code here:
-        try {
-            double number1 = Double.parseDouble(jTextField1.getText());
-            double number2 = Double.parseDouble(jTextField2.getText());
-            Response response = controller.divide(number1, number2);
-            jTextField3.setText("" + response.getResult());
-            JOptionPane.showMessageDialog(null, response.getMessage());
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        
     }//GEN-LAST:event_BtndivideActionPerformed
 
     private void BtnpotencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnpotencyActionPerformed
         // TODO add your handling code here
-       try {
-            double base = Double.parseDouble(jTextField1.getText());
-            double exponent = Double.parseDouble(jTextField2.getText());
-            Response response = controller.potency(base, exponent);
-            jTextField3.setText("" + response.getResult());
-            JOptionPane.showMessageDialog(null, response.getMessage());
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+       
     }//GEN-LAST:event_BtnpotencyActionPerformed
 
     private void BtnclearnumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnclearnumActionPerformed

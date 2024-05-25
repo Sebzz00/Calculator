@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.controllers.util;
 
 /**
@@ -9,25 +6,27 @@ package com.controllers.util;
  * @author sebas
  */
 public class Response {
-     private Object result;
-    private boolean success;
+      
+    private int status;
     private String message;
+    private Object object;
 
-    public Response(Object result, boolean success, String message) {
-        this.result = result;
-        this.success = success;
+    public Response(String message, int status, Object object) {
         this.message = message;
+        this.status = status;
+        this.object = object;
     }
-
-    public Object getResult() {
-        return result;
+    public Response(String message, int status) {
+        this.message = message;
+        this.status = status;
     }
-
-    public boolean isSuccess() {
-        return success;
+    public int getStatus() {
+        return status;
     }
-
     public String getMessage() {
         return message;
     }
+    public Object getObject() {
+        return object;
+    }  
 }

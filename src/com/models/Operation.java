@@ -1,30 +1,33 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.models;
 
 /**
  *
  * @author edangulo
  */
-public class Operation {
+public abstract class Operation {
     
-     
-    private double number1;
-    private double number2;
-    private String operator;
-    private double result;
+    protected double number1;
+    protected double number2;
+    protected String operator;
+    protected double result;
 
-    public Operation(double number1, double number2, String operator, double result) {
+    public Operation(double number1, double number2, String operator) {
         this.number1 = number1;
         this.number2 = number2;
         this.operator = operator;
-        this.result = result;
+        this.result = this.operate();
     }
 
+    public double getResult(){
+        return this.result;
+    }
+    
+    public abstract double operate();
+    
     @Override
     public String toString() {
         return number1 + " " + operator + " " + number2 + " = " + result;
     }
+    
 }
