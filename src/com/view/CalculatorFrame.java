@@ -2,8 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package calculator;
+package com.view;
 
+import calculator.Calculator;
+import com.controllers.CalculatorController;
+import com.models.storage.History;
+import com.models.Operation;
+import com.controllers.util.Response;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.DefaultListModel;
@@ -21,7 +26,6 @@ public class CalculatorFrame extends javax.swing.JFrame {
      * Creates new form Calculator
      */
     public CalculatorFrame() {
-        this.history = new History();
         this.controller = new CalculatorController(new Calculator(), history);
         initComponents();
     }
@@ -285,16 +289,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
 
     private void BtnupdatehActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnupdatehActionPerformed
         // TODO add your handling code here:
-       Response response = controller.getHistory();
-        if (response.isSuccess()) {
-            ArrayList<Operation> operationHistory = (ArrayList<Operation>) response.getResult();
-            DefaultListModel model = new DefaultListModel();
-            model.addAll(operationHistory);
-            jList1.setModel(model);
-            JOptionPane.showMessageDialog(null, response.getMessage());
-        } else {
-            JOptionPane.showMessageDialog(null, response.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
+      
     }//GEN-LAST:event_BtnupdatehActionPerformed
 
     

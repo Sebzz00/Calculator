@@ -2,8 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package calculator;
+package com.controllers;
 
+import calculator.Calculator;
+import com.models.storage.History;
+import com.models.Operation;
+import com.controllers.util.Response;
 import java.util.ArrayList;
 
 /**
@@ -54,8 +58,4 @@ public class CalculatorController {
         return new Response(result, true, "Potency successful");
     }
 
-    public Response getHistory() {
-        ArrayList<Operation> operations = history.getOperationsInReverseOrder();
-        return new Response(operations, true, "History retrieved successfully");
     }
-}
