@@ -16,7 +16,7 @@ import javax.swing.DefaultListModel;
  */
 public class HistoryControllers {
     
-    public Response getHistory(){
+    public static Response getHistory(){
         try{
         History h = History.getInstance();
         ArrayList<Operation> operationHistorial = h.getOperations();
