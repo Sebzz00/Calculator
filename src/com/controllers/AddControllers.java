@@ -16,7 +16,6 @@ public class AddControllers {
     
     public static Response createOperation(String num1, String num2) {
 
-
         DecimalFormat formatter = new DecimalFormat(".###");
         try {
             double n1, n2;
