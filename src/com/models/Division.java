@@ -5,9 +5,9 @@ package com.models;
  *
  * @author sebas
  */
-public class Divide extends OperationIU{
+public class Division extends OperationIU{
 
-    public Divide(double num1, double num2) {
+    public Division(double num1, double num2) {
         super(num1, num2, "/");
     }
     @Override

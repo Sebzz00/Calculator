@@ -3,8 +3,8 @@ package com.controllers;
 
 import com.controllers.util.Response;
 import com.controllers.util.Status;
-import com.models.Divide;
 import com.models.OperationIU;
+import com.models.Subtraction;
 import com.models.storage.History;
 import java.text.DecimalFormat;
 
@@ -12,7 +12,7 @@ import java.text.DecimalFormat;
  *
  * @author sebas
  */
-public class DivideControllers {
+public class SubtractionControllers {
       
     public static Response createOperation(String num1, String num2) {
 
@@ -54,7 +54,7 @@ public class DivideControllers {
                 }
             } 
             History history = History.getInstance();
-            OperationIU op = new Divide(n1, n2);
+            OperationIU op = new Subtraction(n1, n2);
             String result = formatter.format(op.getResult());
 
             history.addOperation(op);

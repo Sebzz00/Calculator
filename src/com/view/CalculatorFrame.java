@@ -207,7 +207,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
         // TODO add your handling code here
         String n1 = Field1.getText();
         String n2 = Field2.getText();
-        Response res = AddControllers.createOperation(n1, n2);
+        Response res = AdditionControllers.createOperation(n1, n2);
         if (res.getStatus() >= 500) {
             JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.ERROR_MESSAGE);
         } else if (res.getStatus() >= 400) {
@@ -221,7 +221,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         String n1 = Field1.getText();
         String n2 = Field2.getText();
-        Response res = SubtractControllers.createOperation(n1, n2);
+        Response res = SubtractionControllers.createOperation(n1, n2);
         if (res.getStatus() >= 500) {
             JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.ERROR_MESSAGE);
         } else if (res.getStatus() >= 400) {
@@ -235,7 +235,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         String n1 = Field1.getText();
         String n2 = Field2.getText();
-        Response res = MultiplyControllers.createOperation(n1, n2);
+        Response res = MultiplicationControllers.createOperation(n1, n2);
         if (res.getStatus() >= 500) {
             JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.ERROR_MESSAGE);
         } else if (res.getStatus() >= 400) {
@@ -249,7 +249,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         String n1 = Field1.getText();
         String n2 = Field2.getText();
-        Response res = DivideControllers.createOperation(n1, n2);
+        Response res = DivisionControllers.createOperation(n1, n2);
         if (res.getStatus() >= 500) {
             JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.ERROR_MESSAGE);
         } else if (res.getStatus() >= 400) {
@@ -264,7 +264,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
         // TODO add your handling code here
         String n1 = Field1.getText();
         String n2 = Field2.getText();
-        Response res = PotencyControllers.createOperation(n1, n2);
+        Response res = EmpowermentControllers.createOperation(n1, n2);
         if (res.getStatus() >= 500) {
             JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.ERROR_MESSAGE);
         } else if (res.getStatus() >= 400) {

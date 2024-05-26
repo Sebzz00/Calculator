@@ -3,8 +3,8 @@ package com.controllers;
 
 import com.controllers.util.Response;
 import com.controllers.util.Status;
+import com.models.Division;
 import com.models.OperationIU;
-import com.models.Potency;
 import com.models.storage.History;
 import java.text.DecimalFormat;
 
@@ -12,8 +12,8 @@ import java.text.DecimalFormat;
  *
  * @author sebas
  */
-public class PotencyControllers {
-     
+public class DivisionControllers {
+      
     public static Response createOperation(String num1, String num2) {
 
         DecimalFormat formatter = new DecimalFormat(".###");
@@ -54,7 +54,7 @@ public class PotencyControllers {
                 }
             } 
             History history = History.getInstance();
-            OperationIU op = new Potency(n1, n2);
+            OperationIU op = new Division(n1, n2);
             String result = formatter.format(op.getResult());
 
             history.addOperation(op);
@@ -65,5 +65,5 @@ public class PotencyControllers {
             e.printStackTrace();
             return new Response("Unexpected error", Status.INTERNAL_SERVER_ERROR);
         }
-} 
+}
 }

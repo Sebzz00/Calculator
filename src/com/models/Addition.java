@@ -5,9 +5,9 @@ package com.models;
  *
  * @author sebas
  */
-public class Add extends OperationIU {
+public class Addition extends OperationIU {
     
-    public Add(double num1, double num2) {
+    public Addition(double num1, double num2) {
         super(num1, num2, "+");
     }
     

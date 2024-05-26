@@ -5,8 +5,8 @@ package com.models;
  *
  * @author sebas
  */
-public class Potency extends OperationIU {
-    public Potency(double base, double exponent) {
+public class Empowerment extends OperationIU {
+    public Empowerment(double base, double exponent) {
         super(base, exponent, "^");
     }
 
