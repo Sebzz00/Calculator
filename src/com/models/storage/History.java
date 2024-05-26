@@ -1,7 +1,7 @@
 
 package com.models.storage;
 
-import com.models.Operation;
+import com.models.OperationIU;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -13,7 +13,7 @@ public class History {
      
     private static History instance;
     
-    private ArrayList<Operation> operations;
+    private ArrayList<OperationIU> operations;
 
     private History() {
         this.operations = new ArrayList<>();
@@ -24,10 +24,10 @@ public class History {
         }
         return instance;
     }
-    public void addOperation(Operation operation) {
+    public void addOperation(OperationIU operation) {
         this.operations.add(operation);
     }
-    public ArrayList<Operation> getOperations() {
+    public ArrayList<OperationIU> getOperations() {
         return operations;
     }
     

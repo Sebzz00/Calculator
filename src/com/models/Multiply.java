@@ -5,7 +5,7 @@ package com.models;
  *
  * @author sebas
  */
-public class Multiply extends Operation{
+public class Multiply extends OperationIU{
 
     public Multiply(double num1, double num2) {
         super(num1, num2, "*");

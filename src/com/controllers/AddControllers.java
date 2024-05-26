@@ -4,7 +4,7 @@ package com.controllers;
 import com.controllers.util.Response;
 import com.controllers.util.Status;
 import com.models.Add;
-import com.models.Operation;
+import com.models.OperationIU;
 import com.models.storage.History;
 import java.text.DecimalFormat; //   Class that allows controlling decimals
 
@@ -55,7 +55,7 @@ public class AddControllers {
             }
 
             History history = History.getInstance();
-            Operation op = new Add(n1, n2);
+            OperationIU op = new Add(n1, n2);
             String result = formatter.format(op.getResult());
 
             history.addOperation(op);

@@ -213,17 +213,13 @@ public class CalculatorFrame extends javax.swing.JFrame {
         } else if (res.getStatus() >= 400) {
             JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.WARNING_MESSAGE);
         } else { 
-            Field1.setText("");
-            Field2.setText("");
-            Field3.setText((String) res.getObject());
-            
+            Field3.setText((String) res.getObject());   
         }
-        
     }//GEN-LAST:event_BtnaddActionPerformed
 
     private void BtnsubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnsubtractActionPerformed
         // TODO add your handling code here:
-         String n1 = Field1.getText();
+        String n1 = Field1.getText();
         String n2 = Field2.getText();
         Response res = SubtractControllers.createOperation(n1, n2);
         if (res.getStatus() >= 500) {
@@ -231,15 +227,13 @@ public class CalculatorFrame extends javax.swing.JFrame {
         } else if (res.getStatus() >= 400) {
             JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.WARNING_MESSAGE);
         } else {
-            Field1.setText("");
-            Field2.setText("");
             Field3.setText((String) res.getObject());
         }
     }//GEN-LAST:event_BtnsubtractActionPerformed
 
     private void BtnmultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnmultiplyActionPerformed
         // TODO add your handling code here:
-       String n1 = Field1.getText();
+        String n1 = Field1.getText();
         String n2 = Field2.getText();
         Response res = MultiplyControllers.createOperation(n1, n2);
         if (res.getStatus() >= 500) {
@@ -247,8 +241,6 @@ public class CalculatorFrame extends javax.swing.JFrame {
         } else if (res.getStatus() >= 400) {
             JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.WARNING_MESSAGE);
         } else {
-            Field1.setText("");
-            Field2.setText("");
             Field3.setText((String) res.getObject());
         }
     }//GEN-LAST:event_BtnmultiplyActionPerformed
@@ -262,9 +254,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.ERROR_MESSAGE);
         } else if (res.getStatus() >= 400) {
             JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.WARNING_MESSAGE);
-        } else {    
-            Field1.setText("");
-            Field2.setText("");
+        } else { 
             Field3.setText((String) res.getObject());
             
         }
@@ -280,8 +270,6 @@ public class CalculatorFrame extends javax.swing.JFrame {
         } else if (res.getStatus() >= 400) {
             JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.WARNING_MESSAGE);
         } else {
-            Field1.setText("");
-            Field2.setText("");
             Field3.setText((String) res.getObject());
         }
     }//GEN-LAST:event_BtnpotencyActionPerformed

@@ -3,7 +3,7 @@ package com.controllers;
 
 import com.controllers.util.Response;
 import com.controllers.util.Status;
-import com.models.Operation;
+import com.models.OperationIU;
 import com.models.storage.History;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -19,14 +19,14 @@ public class HistoryControllers {
     public static Response getHistory(){
         try{
         History h = History.getInstance();
-        ArrayList<Operation> operationHistorial = h.getOperations();
+        ArrayList<OperationIU> operationHistorial = h.getOperations();
         
         if(operationHistorial.isEmpty()){
             return new Response("Empty operation history.", Status.NOT_FOUND);
         }
         ArrayList<String> operationStrings = new ArrayList<>();
         DecimalFormat formatter = new DecimalFormat(".###");
-        for(Operation op : operationHistorial){
+        for(OperationIU op : operationHistorial){
             String[] rawString = String.valueOf(op).split(" = ");
             String opString = rawString[0] + " = " + formatter.format(Float.parseFloat(rawString[1])).replaceAll(",", ".");
             operationStrings.add(opString);

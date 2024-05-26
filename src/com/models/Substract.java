@@ -5,7 +5,7 @@ package com.models;
  *
  * @author sebas
  */
-public class Substract extends Operation{
+public class Substract extends OperationIU{
     
     public Substract(double num1, double num2) {
         super(num1, num2, "-");

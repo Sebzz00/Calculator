@@ -3,7 +3,7 @@ package com.controllers;
 
 import com.controllers.util.Response;
 import com.controllers.util.Status;
-import com.models.Operation;
+import com.models.OperationIU;
 import com.models.Substract;
 import com.models.storage.History;
 import java.text.DecimalFormat;
@@ -54,7 +54,7 @@ public class SubtractControllers {
                 }
             } 
             History history = History.getInstance();
-            Operation op = new Substract(n1, n2);
+            OperationIU op = new Substract(n1, n2);
             String result = formatter.format(op.getResult());
 
             history.addOperation(op);
